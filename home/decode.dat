@@ -1,0 +1,115 @@
+#
+#Default;Poly-LandMass;cs_landmass
+#
+Lake;Poly-Waterbody;cs_lake
+IntermittentLake;Poly-Waterbody;cs_intermittentlake
+Lagoon;Poly-Waterbody;cs_lagoon
+Estuary;Poly-Waterbody;cs_estuary
+Watercourse;Poly-Watercourse;cs_watercourse
+#
+# Population areas: cities and towns
+#
+SubUrban;Poly-City;cs_suburban
+Urban;Poly-City;cs_urban
+Town;Poly-City;cs_town
+#
+#Town --point-width 400;Poly-City;cs_town
+#
+Industrial;Poly-Commercial;cs_industrial
+Construction;Poly-Commercial;cs_construction
+Transport;Poly-Commercial;cs_transport
+Port;Poly-Commercial;cs_port
+Fishing;Poly-Commercial;cs_fishing
+#
+# Forest: deciduous broad, evergreen broad, mixed
+#
+DeciduousForest;Poly-Forest;cs_deciduousforest
+EvergreenForest;Poly-Forest;cs_evergreenforest
+MixedForest;Poly-Forest;cs_mixedforest
+RainForest;Poly-Forest;cs_rainforest
+AgroForest;Poly-Forest;cs_agroforest
+#
+# Ground cover: sand, tidal, lava, barren, grass, scrub, herb-tundra
+#
+Airport;Poly-LandCover;cs_airport
+Rock;Poly-LandCover;cs_rock
+Dirt;Poly-LandCover;cs_dirt
+BarrenCover;Poly-LandCover;cs_barrencover
+GolfCourse;Poly-LandCover;cs_golfcourse
+Cemetery;Poly-LandCover;cs_cemetery
+Grassland;Poly-LandCover;cs_grassland
+Greenspace;Poly-LandCover;cs_greenspace
+OpenMining;Poly-LandCover;cs_openmining
+Dump;Poly-LandCover;cs_dump
+Lava;Poly-LandCover;cs_lava
+Sand;Poly-LandCover;cs_sand
+Saline;Poly-LandCover;cs_saline
+Scrub;Poly-LandCover;cs_scrub
+Heath;Poly-LandCover;cs_heath
+Sclerophyllous;Poly-LandCover;cs_sclerophyllous
+Burnt;Poly-LandCover;cs_burnt
+HerbTundra;Poly-LandCover;cs_herbtundra
+#
+# Concrete walls
+#
+Asphalt;Poly-LandCover;cs_asphalt
+#
+# Uncovered areas
+#
+Scrub;Poly-LandCover;cs_void
+# Ice cover: glaciers, pack ice, and sea ice
+Glacier;Poly-Ice;cs_glacier
+PackIce;Poly-Ice;cs_packice
+PolarIce;Poly-Ice;cs_polarice
+#
+# Marshes: marsh and bog
+#
+Bog;Poly-Floodland;cs_bog
+Marsh;Poly-Floodland;cs_marsh
+FloodLand;Poly-Floodland;cs_floodland
+Littoral;Poly-Floodland;cs_littoral
+SaltMarsh;Poly-Floodland;cs_saltmarsh
+#
+# Crops: mixed pasture, dry crop, irrigated crop
+#
+CropGrass;Poly-Agro;cs_cropgrass
+#DryCrop;Poly-Agro;cs_drycrop
+IrrCrop;Poly-Agro;cs_irrcrop
+Rice;Poly-Agro;cs_rice
+MixedCrop;Poly-Agro;cs_mixedcrop
+ComplexCrop;Poly-Agro;cs_complexcrop
+NaturalCrop;Poly-Agro;cs_naturalcrop
+Vineyard;Poly-Agro;cs_vineyard
+Orchard;Poly-Agro;cs_orchard
+Olives;Poly-Agro;cs_olives
+#
+# OSM lines expect "SET tunnel = NULL WHERE tunnel LIKE "" OR tunnel ILIKE "no" OR tunnel ILIKE "false""
+#              and "SET bridge = NULL WHERE bridge LIKE "" OR bridge ILIKE "no" OR bridge ILIKE "false""
+# Get linear textures with "--texture-lines"
+# Fetch line width from OSM tables via "--line-width-column width", but
+#     requires pre-formatting width columns, as they may contain random
+#     garbage
+#
+# Roads: highway, freeway, trail
+#Freeway;Line-Road;osm_motorway;--texture-lines;--line-width;11;--where;tunnel IS NULL AND bridge IS NULL
+#Freeway;Line-Road;osm_trunk;--texture-lines;--line-width;7;--where;tunnel IS NULL AND bridge IS NULL
+#Freeway;Line-Road;osm_primary;--texture-lines;--line-width;9;--where;tunnel IS NULL AND bridge IS NULL
+#Road;Line-Road;osm_secondary;--texture-lines;--line-width;7;--where;tunnel IS NULL AND bridge IS NULL
+#Road;Line-Road;osm_tertiary;--texture-lines;--line-width;5;--where;tunnel IS NULL AND bridge IS NULL
+#Road;Line-Road;osm_residential;--texture-lines;--line-width;4;--where;tunnel IS NULL AND bridge IS NULL 
+###Road;Line-Road;osm_unclassified;     --texture-lines --where tunnel IS NULL AND bridge IS NULL  --line-width 4
+###Road;Line-Road;osm_service;     --texture-lines --where tunnel IS NULL AND bridge IS NULL  --line-width 3
+#Freeway;Line-Road;osm_raceway;--texture-lines;--line-width;9;--where;tunnel IS NULL AND bridge IS NULL
+##
+## Railroads: single and multiple tracks
+##
+#Railroad;Line-Railroad;osm_rail;--texture-lines;--line-width;5;--where;tunnel IS NULL AND bridge IS NULL
+#Railroad;Line-Railroad;osm_tram;--texture-lines;--line-width;2;--where;tunnel IS NULL AND bridge IS NULL
+##
+## Inland moving water: rivers/streams, intermittent streams, and canals
+##
+#Stream;Line-Stream;osm_drain;--texture-lines;--line-width;3;--where;tunnel IS NULL AND bridge IS NULL
+#Stream;Line-Stream;osm_river;--texture-lines;--line-width;12;--where;tunnel IS NULL AND bridge IS NULL
+#Canal;Line-Stream;osm_canal;--texture-lines;--line-width;12;--where;tunnel IS NULL AND bridge IS NULL
+##
+#Freeway;Poly-RoadCover;osm_road_cover
