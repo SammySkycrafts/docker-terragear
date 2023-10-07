@@ -69,7 +69,7 @@ RUN true && \
       libgsl-dev \
       libboost-thread1.65 \
       libmpfr6 && \
-      python3-pip
+      python3-pip \
     rm -rf /var/lib/apt/lists/* && \
     groupadd --gid 1000 flightgear && useradd --uid 1000 --gid flightgear --create-home --home-dir=/home/flightgear --shell=/bin/bash flightgear
 
