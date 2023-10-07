@@ -69,12 +69,16 @@ RUN true && \
       libgsl-dev \
       libboost-thread1.65 \
       libmpfr6 && \
+      python3-pip
     rm -rf /var/lib/apt/lists/* && \
     groupadd --gid 1000 flightgear && useradd --uid 1000 --gid flightgear --create-home --home-dir=/home/flightgear --shell=/bin/bash flightgear
 
+RUN pip install --upgrade pip
+RUN pip install -r requirements.txt
 WORKDIR /home/flightgear
 COPY --from=build /home/flightgear/dist/bin/* /usr/local/bin/
 COPY --from=build /home/flightgear/dist/share/TerraGear /usr/local/share/TerraGear
 COPY --from=build /home/flightgear/dist/lib/* /usr/lib64/
 
 USER flightgear
+RUN /bin/bash
